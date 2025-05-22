@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WESLEY\\Downloads\\354 Assignments\\HW03\\Assignment3_API\\Assignment3_Backend.csproj": {}
+    "C:\\Users\\WESLEY\\Documents\\GitHub\\InventoryManager\\InventoryManager_API\\Assignment3_Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WESLEY\\Downloads\\354 Assignments\\HW03\\Assignment3_API\\Assignment3_Backend.csproj": {
+    "C:\\Users\\WESLEY\\Documents\\GitHub\\InventoryManager\\InventoryManager_API\\Assignment3_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WESLEY\\Downloads\\354 Assignments\\HW03\\Assignment3_API\\Assignment3_Backend.csproj",
+        "projectUniqueName": "C:\\Users\\WESLEY\\Documents\\GitHub\\InventoryManager\\InventoryManager_API\\Assignment3_Backend.csproj",
         "projectName": "Assignment3_Backend",
-        "projectPath": "C:\\Users\\WESLEY\\Downloads\\354 Assignments\\HW03\\Assignment3_API\\Assignment3_Backend.csproj",
+        "projectPath": "C:\\Users\\WESLEY\\Documents\\GitHub\\InventoryManager\\InventoryManager_API\\Assignment3_Backend.csproj",
         "packagesPath": "C:\\Users\\WESLEY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WESLEY\\Downloads\\354 Assignments\\HW03\\Assignment3_API\\obj\\",
+        "outputPath": "C:\\Users\\WESLEY\\Documents\\GitHub\\InventoryManager\\InventoryManager_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

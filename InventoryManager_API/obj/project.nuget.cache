@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "URlO+6IFmps=",
+  "dgSpecHash": "0ZjDIXYTMOI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\WESLEY\\Downloads\\354 Assignments\\HW03\\Assignment3_API\\Assignment3_Backend.csproj",
+  "projectFilePath": "C:\\Users\\WESLEY\\Documents\\GitHub\\InventoryManager\\InventoryManager_API\\Assignment3_Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WESLEY\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\WESLEY\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
