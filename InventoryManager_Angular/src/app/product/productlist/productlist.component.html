@@ -1,0 +1,88 @@
+<div class="container">
+    <h2>Product Listing</h2>
+    
+    <div class="filters-container">
+      <div class="search-container">
+        <input type="text" class="form-control" placeholder="Search products..." 
+          [(ngModel)]="filterText" (input)="onFilterChange()">
+      </div>
+      
+      <div class="items-per-page">
+        <label>Items per page:</label>
+        <select class="form-control" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange(itemsPerPage)">
+          <option [ngValue]="3">3</option>
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="10">10</option>
+        </select>
+      </div>
+    </div>
+    
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>Product Image</th>
+          <th (click)="sort('name')" class="sortable">
+            Product Name
+            <span class="sort-icon" *ngIf="sortColumn === 'name'">
+              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+            </span>
+          </th>
+          <th (click)="sort('price')" class="sortable">
+            Price
+            <span class="sort-icon" *ngIf="sortColumn === 'price'">
+              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+            </span>
+          </th>
+          <th (click)="sort('description')" class="sortable">
+            Description
+            <span class="sort-icon" *ngIf="sortColumn === 'description'">
+              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+            </span>
+          </th>
+          <th (click)="sort('brandName')" class="sortable">
+            Brand Name
+            <span class="sort-icon" *ngIf="sortColumn === 'brandName'">
+              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+            </span>
+          </th>
+          <th (click)="sort('productTypeName')" class="sortable">
+            Product Type
+            <span class="sort-icon" *ngIf="sortColumn === 'productTypeName'">
+              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of paginatedProducts">
+          <td class="image-cell">
+            <img [src]="'data:image/png;base64,' + product.image" alt="{{ product.name }}" class="product-image">
+            <!-- <img [src]="'data:image/png;base64,' + element.image" alt="Product Image" style="width: 100px;"> -->
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ formatPrice(product.price) }}</td>
+          <td class="description-cell">{{ product.description }}</td>
+          <td>{{ product.brandName }}</td>
+          <td>{{ product.productTypeName }}</td>
+        </tr>
+        <tr *ngIf="paginatedProducts.length === 0">
+          <td colspan="6" class="no-products">No products found.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button class="btn btn-sm" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+        &laquo; Previous
+      </button>
+      
+      <span class="page-info">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+      
+      <button class="btn btn-sm" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+        Next &raquo;
+      </button>
+    </div>
+  </div>
+  

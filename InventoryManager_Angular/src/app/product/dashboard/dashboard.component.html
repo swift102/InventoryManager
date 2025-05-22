@@ -1,0 +1,68 @@
+<!-- chart.component.html -->
+<div class="dashboard-container">
+  
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <h2 class="dashboard-title">Product Dashboard</h2>
+
+    <!-- Charts Row -->
+    <div class="charts-container">
+      <!-- Brand Chart -->
+      <div class="chart-card">
+        <div class="card-header">
+          <h5>Products by Brand</h5>
+        </div>
+        <div class="card-body">
+          <div class="chart-container">
+            <canvas id="brandChart"></canvas>
+          </div>
+          <div class="chart-title">Product Count by Brand</div>
+        </div>
+      </div>
+
+      <!-- Product Type Chart -->
+      <div class="chart-card">
+        <div class="card-header">
+          <h5>Products by Type</h5>
+        </div>
+        <div class="card-body">
+          <div class="chart-container">
+            <canvas id="productTypeChart"></canvas>
+          </div>
+          <div class="chart-title">Product Count by Type</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top 10 Most Expensive Products Table -->
+    <div class="top-products-container">
+      <h3>Top 10 Most Expensive Products</h3>
+      
+      <table class="top-products-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of topExpensiveProducts">
+            <td>{{ product.name }}</td>
+            <td>{{ formatPrice(product.price) }}</td>
+            <td>{{ product.brandName }}</td>
+            <td>{{ product.productTypeName }}</td>
+            <td class="description-cell">{{ product.description }}</td>
+          </tr>
+          <tr *ngIf="topExpensiveProducts.length === 0">
+            <td colspan="5" class="no-products">No products found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>

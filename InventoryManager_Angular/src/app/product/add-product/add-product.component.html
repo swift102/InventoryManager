@@ -1,0 +1,97 @@
+
+<!-- add-product.component.html -->
+<div class="dashboard-container">
+  <div class="main-content">
+    <h2 class="page-title">Add Product</h2>
+
+    <div class="form-container">
+      <div class="form-card">
+        <div class="card-header">
+          <h5>Product Information</h5>
+        </div>
+        <div class="card-body">
+          <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <!-- Product Name -->
+            <div class="form-group">
+              <label for="name" class="form-label">Name<span class="required">*</span></label>
+              <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter product name">
+              <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" class="error-message">
+                Name is required
+              </div>
+            </div>
+
+            <!-- Product Price -->
+            <div class="form-group">
+              <label for="price" class="form-label">Price<span class="required">*</span></label>
+              <div class="price-input">
+                <span class="price-symbol">$</span>
+                <input type="number" id="price" class="form-control" formControlName="price" placeholder="0.00" step="0.01">
+              </div>
+              <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" class="error-message">
+                Price is required
+              </div>
+            </div>
+
+            <!-- Product Brand -->
+            <div class="form-group">
+              <label for="brand" class="form-label">Brand<span class="required">*</span></label>
+              <select id="brand" class="form-control" formControlName="brand">
+                <option value="" disabled selected>Select a brand</option>
+                <option *ngFor="let brand of brandsData" [value]="brand.brandId">{{brand.name}}</option>
+              </select>
+              <div *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched" class="error-message">
+                Brand is required
+              </div>
+            </div>
+
+            <!-- Product Type -->
+            <div class="form-group">
+              <label for="producttype" class="form-label">Product Type<span class="required">*</span></label>
+              <select id="producttype" class="form-control" formControlName="producttype">
+                <option value="" disabled selected>Select a product type</option>
+                <option *ngFor="let type of productTypesData" [value]="type.productTypeId">{{type.name}}</option>
+              </select>
+              <div *ngIf="productForm.get('producttype')?.invalid && productForm.get('producttype')?.touched" class="error-message">
+                Product type is required
+              </div>
+            </div>
+
+            <!-- Product Description -->
+            <div class="form-group">
+              <label for="description" class="form-label">Product Description<span class="required">*</span></label>
+              <textarea id="description" class="form-control" formControlName="description" rows="4" placeholder="Describe your product"></textarea>
+              <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched" class="error-message">
+                Description is required
+              </div>
+            </div>
+
+            <!-- File Upload -->
+            <div class="form-group">
+              <label class="form-label">Product Image<span class="required">*</span></label>
+              <div class="file-upload">
+                <input type="file" id="imageFile" accept="image/*" #fileInput (change)="uploadFile(fileInput.files)" 
+                       class="file-input" style="display:none;">
+                <div class="upload-button-container">
+                  <button type="button" class="upload-btn" (click)="fileInput.click()">
+                    <span class="upload-icon">⬆️</span> Upload File
+                  </button>
+                  <span *ngIf="fileNameUploaded" class="file-name">{{fileNameUploaded}}</span>
+                </div>
+              </div>
+              <div *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched" class="error-message">
+                Image is required
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <button type="submit" class="submit-btn" [disabled]="!productForm.valid">
+                Add Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

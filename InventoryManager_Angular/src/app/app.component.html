@@ -1,0 +1,29 @@
+<div class="app-container">
+  <div class="side-nav" *ngIf="isLoggedIn">
+    <div class="nav-header">
+      <h1>INF354</h1>
+      <h2>Product Management</h2>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/products" routerLinkActive="active">Product Listing</a>
+        </li>
+        <li>
+          <a routerLink="/add-product" routerLinkActive="active">Add Product</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="logout-item">
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="main-content" [ngClass]="{'full-width': !isLoggedIn}">
+    <app-notification></app-notification>
+    <router-outlet></router-outlet>
+  </div>
+</div>
